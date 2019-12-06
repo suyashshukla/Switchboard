@@ -24,6 +24,7 @@ namespace SwitchBoard_Simulation
 
             Appliance[] appliances = new Appliance[fan + bulb + ac];
 
+
             for (int i = 0; i < appliances.Length; i++)
             {
 
@@ -31,24 +32,59 @@ namespace SwitchBoard_Simulation
 
                 if (i < fan)
                 {
-                    appliances[i].name = "Fan";
+                    appliances[i].name = "Fan ";
+                    appliances[i].number = (i + 1);
                 }
-                else if (i >= fan && i < bulb)
+                else if (i >= fan && i < (fan+bulb))
                 {
                     appliances[i].name = "Bulb";
+                    appliances[i].number = (i + 1)-fan;
                 }
                 else
                 {
-                    appliances[i].name = "AC";
+                    appliances[i].name = "AC  ";
+                    appliances[i].number = (i + 1)-(fan+bulb);
                 }
-
-                Console.WriteLine((i+1)+". "+appliances[i].name+" : " + (i + 1) + " is " + (appliances[i].status?"ON":"OFF"));
-
+                
             }
 
-            Console.WriteLine("Type in the Device Number");
+            Console.WriteLine();
 
-            int device = int.Parse(Console.ReadLine());
+                while (true)
+            {
+
+                for (int i = 0; i < appliances.Length; i++)
+                {
+                Console.WriteLine((i + 1) + ". " + appliances[i].name + " : " + 
+                    appliances[i].number + " is " + (appliances[i].status ? "ON" : "OFF"));
+                }
+
+                Console.WriteLine((appliances.Length + 1) + ". Exit");
+
+                Console.WriteLine("\nType in the Device Number");
+
+                int device = int.Parse(Console.ReadLine());
+                
+                if (device == (appliances.Length + 1))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("\nAPPLIANCE MENU :");
+                    Console.WriteLine("1. SWITCH " + appliances[device - 1].name.Trim() 
+                        +" "+ appliances[device-1].number + " "+ (appliances[device - 1].status ? "OFF" : "ON"));
+                    Console.WriteLine("2. BACK");
+                    int choice = int.Parse(Console.ReadLine());
+
+                    if (choice == 1)
+                    {
+                        appliances[device - 1].status = (appliances[device - 1].status? false : true);
+                        Console.WriteLine("\n");
+                    }
+                }
+
+            }
 
         }
     }

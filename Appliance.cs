@@ -24,5 +24,10 @@ namespace SwitchBoard_Simulation
             get;set;
         }
 
+        public int number
+        {
+            get;set;
+        }
+
     }
 }
