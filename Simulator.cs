@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SwitchBoard_Simulation
+namespace SwitchBoardSimulator
 {
     internal class Simulator
     {
@@ -28,7 +28,7 @@ namespace SwitchBoard_Simulation
                 Fan f = new Fan((i + 1));
 
                 Switch s = new Switch();
-                s.connectAppliance(f);
+                s.ConnectAppliance(f);
                 switchBoard.Add(s);
             }
 
@@ -37,7 +37,7 @@ namespace SwitchBoard_Simulation
                 Bulb b = new Bulb((i + 1));
 
                 Switch s = new Switch();
-                s.connectAppliance(b);                
+                s.ConnectAppliance(b);                
                 switchBoard.Add(s);
             }
 
@@ -47,7 +47,7 @@ namespace SwitchBoard_Simulation
                 AC a = new AC((i + 1));
 
                 Switch s = new Switch();
-                s.connectAppliance(a);
+                s.ConnectAppliance(a);
                 switchBoard.Add(s);
             }
 
@@ -57,11 +57,11 @@ namespace SwitchBoard_Simulation
             while (true)
             {
 
-                showSwitchBoard(switchBoard);
+                ShowSwitchBoard(switchBoard);
                 
                 Console.WriteLine(-1 + ". Exit");
 
-                Console.WriteLine("\nType in the Device Number");
+                Console.WriteLine("\nType the Device Number");
 
                 int device = int.Parse(Console.ReadLine());
                 
@@ -70,27 +70,26 @@ namespace SwitchBoard_Simulation
 
                 Switch switchInstance = switchBoard[device - 1];
 
-                Console.WriteLine("1. Switch " + switchInstance.getDevice().type + " " + (switchInstance.status ? "OFF" : "ON"));
-                Console.WriteLine("2. BACK");
+                ShowSwitchMenu(switchInstance);
 
                 int choice = int.Parse(Console.ReadLine());
 
-                switch (choice)
-                {
-                    case 1:
-                        switchInstance.status = true;
-                        break;
-                    default:
-                        break;
-                }
+                if (choice == 1)
+                    switchInstance.ToggleState();
             }
         }
 
-        public static void showSwitchBoard(List<Switch> switchBoard) {
+        public static void ShowSwitchBoard(List<Switch> switchBoard) {
             foreach (Switch s in switchBoard)
             {
-                Console.WriteLine((switchBoard.IndexOf(s) + 1) + " " + s.getDevice().type + " is " + (s.status ? "ON" : "OFF"));
+                Console.WriteLine((switchBoard.IndexOf(s) + 1) + " " + s.GetDevice().type + " is " + (s.GetStatus() ? "ON" : "OFF"));
             }
+        }
+
+        public static void ShowSwitchMenu(Switch s)
+        {
+            Console.WriteLine("1. Switch " + s.GetDevice().type + " " + (s.GetStatus() ? "OFF" : "ON"));
+            Console.WriteLine("2. BACK");
         }
     }
 }

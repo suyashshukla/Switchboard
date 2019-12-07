@@ -4,34 +4,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SwitchBoard_Simulation
+namespace SwitchBoardSimulator
 {
     class Switch 
     {
 
         public Switch()
         {
-            status = false;
+            Status = false;
         }
 
-        private Appliance device
+        private Appliance Device
         {
             get;set;
         }
 
-        public bool status
+        public bool Status
         {
             get;set;
         }
 
-        public void connectAppliance(Appliance appliance)
+        public void ConnectAppliance(Appliance appliance)
         {
-            this.device = appliance;
+            this.Device = appliance;
         }
 
-        public Appliance getDevice()
+        public Appliance GetDevice()
         {
-            return this.device;
+            return this.Device;
+        } 
+
+        public bool GetStatus()
+        {
+            return this.Status;
         }
+        
+        public void ToggleState()
+        {
+            this.Status = !this.Status;
+        }
+
+
     }
 }

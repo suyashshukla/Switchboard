@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SwitchBoard_Simulation
+namespace SwitchBoardSimulator
 {
     class Appliance
     {
 
         public Appliance(int id,string type)
         {
-            this.id = id;
+            this.Id = id;
             this.type = type;
         }
         
@@ -20,7 +20,7 @@ namespace SwitchBoard_Simulation
             get;set;
         }
 
-        public int id
+        public int Id
         {
             get;set;
         }

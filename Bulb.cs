@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SwitchBoard_Simulation
+namespace SwitchBoardSimulator
 {
     class Bulb : Appliance
     {
