@@ -9,14 +9,29 @@ namespace SwitchBoard_Simulation
     class Switch 
     {
 
-        public Switch(Appliance appliance)
+        public Switch()
         {
-            device = appliance;
+            status = false;
         }
 
-        public Appliance device
+        private Appliance device
         {
             get;set;
+        }
+
+        public bool status
+        {
+            get;set;
+        }
+
+        public void connectAppliance(Appliance appliance)
+        {
+            this.device = appliance;
+        }
+
+        public Appliance getDevice()
+        {
+            return this.device;
         }
     }
 }

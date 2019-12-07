@@ -8,5 +8,10 @@ namespace SwitchBoard_Simulation
 {
     class AC : Appliance
     {
+
+        public AC(int id):base(id,"AC")
+        {
+
+        }
     }
 }

@@ -8,9 +8,9 @@ namespace SwitchBoard_Simulation
 {
     class Bulb : Appliance
     {
-        public int power
+        public Bulb(int id):base(id,"Bulb")
         {
-            get;set;
+
         }
     }
 }

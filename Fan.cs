@@ -8,6 +8,9 @@ namespace SwitchBoard_Simulation
 {
     class Fan : Appliance
     {
-               
+        public Fan(int id) : base(id, "Fan")
+        {
+            
+        }
     }
 }

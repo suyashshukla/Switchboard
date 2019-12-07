@@ -9,22 +9,18 @@ namespace SwitchBoard_Simulation
     class Appliance
     {
 
-        public Appliance(){
-            status = false;
-            name = "Appliance";
+        public Appliance(int id,string type)
+        {
+            this.id = id;
+            this.type = type;
         }
-
-        public bool status
+        
+        public string type
         {
             get;set;
         }
 
-        public string name
-        {
-            get;set;
-        }
-
-        public int number
+        public int id
         {
             get;set;
         }
