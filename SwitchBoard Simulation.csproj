@@ -50,6 +50,7 @@
     <Compile Include="Simulator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Switch.cs" />
+    <Compile Include="SwitchBoardHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

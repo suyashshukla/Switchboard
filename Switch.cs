@@ -43,7 +43,6 @@ namespace SwitchBoardSimulator
         {
             this.Status = !this.Status;
         }
-
-
+        
     }
 }

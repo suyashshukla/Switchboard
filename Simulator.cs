@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SwitchBoard_Simulation;
+using System;
 using System.Collections.Generic;
 
 namespace SwitchBoardSimulator
@@ -57,7 +58,7 @@ namespace SwitchBoardSimulator
             while (true)
             {
 
-                ShowSwitchBoard(switchBoard);
+                SwitchBoardHelper.ShowSwitchBoard(switchBoard);
                 
                 Console.WriteLine(-1 + ". Exit");
 
@@ -70,7 +71,7 @@ namespace SwitchBoardSimulator
 
                 Switch switchInstance = switchBoard[device - 1];
 
-                ShowSwitchMenu(switchInstance);
+               SwitchBoardHelper.ShowSwitchMenu(switchInstance);
 
                 int choice = int.Parse(Console.ReadLine());
 
@@ -79,18 +80,7 @@ namespace SwitchBoardSimulator
             }
         }
 
-        public static void ShowSwitchBoard(List<Switch> switchBoard) {
-            foreach (Switch s in switchBoard)
-            {
-                Console.WriteLine((switchBoard.IndexOf(s) + 1) + " " + s.GetDevice().type + " is " + (s.GetStatus() ? "ON" : "OFF"));
-            }
-        }
-
-        public static void ShowSwitchMenu(Switch s)
-        {
-            Console.WriteLine("1. Switch " + s.GetDevice().type + " " + (s.GetStatus() ? "OFF" : "ON"));
-            Console.WriteLine("2. BACK");
-        }
+       
     }
 }
 
