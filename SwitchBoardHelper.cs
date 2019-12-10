@@ -5,22 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SwitchBoard_Simulation
+namespace SwitchBoardSimulation
 {
     class SwitchBoardHelper
     {
 
-        public static void ShowSwitchBoard(List<Switch> switchBoard)
+        public static void ShowSwitchBoard(List<Switch> SwitchBoard)
         {
-            foreach (Switch s in switchBoard)
+            foreach (Switch Switch in SwitchBoard)
             {
-                Console.WriteLine((switchBoard.IndexOf(s) + 1) + " " + s.GetDevice().type + " is " + (s.GetStatus() ? "ON" : "OFF"));
+                Console.WriteLine((SwitchBoard.IndexOf(Switch) + 1) + " " + Switch.GetDevice().type + " is " + (Switch.GetStatus() ? "ON" : "OFF"));
             }
         }
 
-        public static void ShowSwitchMenu(Switch s)
+        public static void ShowSwitchMenu(Switch Switch)
         {
-            Console.WriteLine("1. Switch " + s.GetDevice().type + " " + (s.GetStatus() ? "OFF" : "ON"));
+            Console.WriteLine("1. Switch " + Switch.GetDevice().type + " " + (Switch.GetStatus() ? "OFF" : "ON"));
             Console.WriteLine("2. BACK");
         }
     }

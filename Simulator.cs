@@ -1,4 +1,4 @@
-﻿using SwitchBoard_Simulation;
+﻿using SwitchBoardSimulation;
 using System;
 using System.Collections.Generic;
 
@@ -13,43 +13,43 @@ namespace SwitchBoardSimulator
             Console.WriteLine("\nSWITCHBOARD SIMULATION\n");
 
             Console.WriteLine("Number of Fans?");
-            int fan = int.Parse(Console.ReadLine());
+            int Fan = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Number of Bulbs?");
-            int bulb = int.Parse(Console.ReadLine());
+            int Bulb = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Number of ACs?");
-            int ac = int.Parse(Console.ReadLine());
+            int AC = int.Parse(Console.ReadLine());
 
-            List<Switch> switchBoard = new List<Switch>();
+            List<Switch> SwitchBoard = new List<Switch>();
 
 
-            for (int i = 0; i < fan; i++)
+            for (int i = 0; i < Fan; i++)
             {
-                Fan f = new Fan((i + 1));
+                Fan FanAppliance = new Fan((i + 1));
 
-                Switch s = new Switch();
-                s.ConnectAppliance(f);
-                switchBoard.Add(s);
+                Switch Switch = new Switch();
+                Switch.ConnectAppliance(FanAppliance);
+                SwitchBoard.Add(Switch);
             }
 
-            for (int i = 0; i < bulb; i++)
+            for (int i = 0; i < Bulb; i++)
             {
-                Bulb b = new Bulb((i + 1));
+                Bulb BulbAppliance = new Bulb((i + 1));
 
-                Switch s = new Switch();
-                s.ConnectAppliance(b);                
-                switchBoard.Add(s);
+                Switch Switch = new Switch();
+                Switch.ConnectAppliance(BulbAppliance);                
+                SwitchBoard.Add(Switch);
             }
 
 
-            for (int i = 0; i < ac; i++)
+            for (int i = 0; i < AC; i++)
             {
-                AC a = new AC((i + 1));
+                AC ACAppliance = new AC((i + 1));
 
-                Switch s = new Switch();
-                s.ConnectAppliance(a);
-                switchBoard.Add(s);
+                Switch Switch = new Switch();
+                Switch.ConnectAppliance(ACAppliance);
+                SwitchBoard.Add(Switch);
             }
 
             Console.WriteLine();
@@ -58,25 +58,25 @@ namespace SwitchBoardSimulator
             while (true)
             {
 
-                SwitchBoardHelper.ShowSwitchBoard(switchBoard);
+                SwitchBoardHelper.ShowSwitchBoard(SwitchBoard);
                 
                 Console.WriteLine(-1 + ". Exit");
 
                 Console.WriteLine("\nType the Device Number");
 
-                int device = int.Parse(Console.ReadLine());
+                int Device = int.Parse(Console.ReadLine());
                 
-                if (device == -1)
+                if (Device == -1)
                     break;
 
-                Switch switchInstance = switchBoard[device - 1];
+                Switch SwitchInstance = SwitchBoard[Device - 1];
 
-               SwitchBoardHelper.ShowSwitchMenu(switchInstance);
+               SwitchBoardHelper.ShowSwitchMenu(SwitchInstance);
 
                 int choice = int.Parse(Console.ReadLine());
 
                 if (choice == 1)
-                    switchInstance.ToggleState();
+                    SwitchInstance.ToggleState();
             }
         }
 
